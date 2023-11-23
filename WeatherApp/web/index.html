@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="eel.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="main">
+    <div class="center-container">
+    <input type="text" id="location" value="Moscow">
+</div>
+<br>
+<div>
+    <button id="show" onclick="display_weather()">Get weather</button>
+</div>
+    <br>
+<div id="info"></div>
+</div>
+    <script>
+        async function display_weather() {
+            let place = document.getElementById('location').value;
+            let res = await eel.collect_data(place)();
+            document.getElementById('info').innerHTML = res;
+        }
+    </script>
+</body>
+</html>
